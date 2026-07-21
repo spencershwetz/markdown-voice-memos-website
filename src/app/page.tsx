@@ -6,6 +6,7 @@ import {
   appStoreUrl,
   getContent,
   siteUrl,
+  supportedLanguageNames,
   type HomeContent,
 } from "./siteContent";
 
@@ -45,6 +46,30 @@ export function HomePage({ content }: { content: HomeContent }) {
       `${siteUrl}/product/transcript.jpg`,
       `${siteUrl}/product/markdown-export.jpg`,
     ],
+    availableLanguage: supportedLanguageNames,
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        name: "Markdown Voice Memos",
+        url: siteUrl,
+        inLanguage: content.lang,
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "Markdown Voice Memos",
+        url: siteUrl,
+        logo: `${siteUrl}/product/app-icon.png`,
+      },
+    ],
   };
 
   const faqJsonLd = {
@@ -71,6 +96,10 @@ export function HomePage({ content }: { content: HomeContent }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <main className={styles.page} lang={content.lang} dir={content.dir}>
         <LanguageSelector currentLocale={content.locale} />
         <section className={styles.hero}>
@@ -82,7 +111,6 @@ export function HomePage({ content }: { content: HomeContent }) {
               height={82}
               className={styles.appIcon}
               sizes="82px"
-              priority
             />
             <p className={styles.kicker}>{content.heroKicker}</p>
             <h1>{content.heroTitle}</h1>
@@ -171,7 +199,7 @@ export function HomePage({ content }: { content: HomeContent }) {
           />
         </section>
 
-        <section className={styles.faq}>
+        <section id="questions" className={styles.faq}>
           <div className={styles.sectionCopy}>
             <p className={styles.kicker}>{content.faqKicker}</p>
             <h2>{content.faqTitle}</h2>
@@ -196,6 +224,11 @@ export function HomePage({ content }: { content: HomeContent }) {
             aria-label={content.downloadCta}
           />
         </section>
+        <footer className={styles.footer}>
+          <a href="#workflow">{content.workflowKicker}</a>
+          <a href="#questions">{content.faqKicker}</a>
+          <a href={appStoreUrl}>{content.downloadCta}</a>
+        </footer>
       </main>
     </>
   );

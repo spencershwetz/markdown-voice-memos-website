@@ -8,6 +8,7 @@ import {
   languageAlternates,
   locales,
   siteUrl,
+  truncateMetadataText,
   type Locale,
 } from "../siteContent";
 
@@ -35,9 +36,9 @@ export async function generateMetadata({
 
   return {
     title: {
-      absolute: content.title,
+      absolute: truncateMetadataText(content.title, 60),
     },
-    description: content.description,
+    description: truncateMetadataText(content.description, 160),
     keywords: content.keywords,
     alternates: {
       canonical: `${siteUrl}${path}`,

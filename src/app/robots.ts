@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://markdownvoicememos.com/sitemap.xml",
+    host: "https://markdownvoicememos.com",
   };
 }

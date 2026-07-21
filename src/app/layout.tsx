@@ -4,7 +4,13 @@ import { headers } from "next/headers";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics } from "./analytics";
 import "./globals.css";
-import { getContent, languageAlternates, locales, siteUrl } from "./siteContent";
+import {
+  getContent,
+  languageAlternates,
+  locales,
+  siteUrl,
+  truncateMetadataText,
+} from "./siteContent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,10 +29,10 @@ const ogImage = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: content.title,
+    default: truncateMetadataText(content.title, 60),
     template: "%s | Markdown Voice Memos",
   },
-  description: content.description,
+  description: truncateMetadataText(content.description, 160),
   applicationName: "Markdown Voice Memos",
   keywords: content.keywords,
   alternates: {

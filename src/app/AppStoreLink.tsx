@@ -49,7 +49,7 @@ export function AppStoreLink({
     >
       <Image
         src={badge.src}
-        alt=""
+        alt={ariaLabel}
         width={badge.width}
         height={badge.height}
         unoptimized

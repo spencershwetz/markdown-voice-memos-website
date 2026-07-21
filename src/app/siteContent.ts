@@ -4,6 +4,18 @@ export const siteUrl = "https://markdownvoicememos.com";
 
 export const appStoreUrl = "https://apps.apple.com/app/id6754059256";
 
+export function truncateMetadataText(value: string, maxLength: number): string {
+  if (value.length <= maxLength) return value;
+
+  const candidate = value.slice(0, maxLength);
+  const lastSpace = candidate.lastIndexOf(" ");
+  const cutAt = lastSpace >= Math.floor(maxLength * 0.7)
+    ? lastSpace
+    : maxLength - 1;
+
+  return `${candidate.slice(0, cutAt).trim().replace(/[|,:;\-]+$/, "")}…`;
+}
+
 export const contentLocales = [
   "ar",
   "ca",

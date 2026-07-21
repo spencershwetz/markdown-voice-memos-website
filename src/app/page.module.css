@@ -354,6 +354,25 @@
   max-width: 860px;
 }
 
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  transition: color 180ms ease;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
 @keyframes rise {
   from {
     opacity: 0;
