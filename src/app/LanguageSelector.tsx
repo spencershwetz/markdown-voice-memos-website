@@ -99,6 +99,7 @@ export function LanguageSelector({ currentLocale }: { currentLocale: Locale }) {
           value={currentLocale}
           id="language-select"
           name="language"
+          aria-label="Language"
           onChange={(event) => goToLocale(event.target.value as Locale)}
         >
           {languageSelectorLocales.map((locale) => (
