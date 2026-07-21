@@ -41,9 +41,9 @@ export function HomePage({ content }: { content: HomeContent }) {
     downloadUrl: appStoreUrl,
     image: `${siteUrl}/product/app-icon.png`,
     screenshot: [
-      `${siteUrl}/product/library.png`,
-      `${siteUrl}/product/transcript.png`,
-      `${siteUrl}/product/markdown-export.png`,
+      `${siteUrl}/product/library.jpg`,
+      `${siteUrl}/product/transcript.jpg`,
+      `${siteUrl}/product/markdown-export.jpg`,
     ],
   };
 
@@ -81,6 +81,7 @@ export function HomePage({ content }: { content: HomeContent }) {
               width={82}
               height={82}
               className={styles.appIcon}
+              sizes="82px"
               priority
             />
             <p className={styles.kicker}>{content.heroKicker}</p>
@@ -101,19 +102,22 @@ export function HomePage({ content }: { content: HomeContent }) {
           </div>
           <div className={styles.heroVisual} aria-label={content.imageAlts.screenshots}>
             <Image
-              src="/product/library.png"
+              src="/product/library.jpg"
               alt={content.imageAlts.library}
-              width={1284}
-              height={2778}
+              width={416}
+              height={900}
               className={`${styles.phoneShot} ${styles.phoneMain}`}
+              sizes="(max-width: 900px) 58vw, 320px"
               priority
             />
             <Image
-              src="/product/transcript.png"
+              src="/product/transcript.jpg"
               alt={content.imageAlts.transcript}
-              width={1284}
-              height={2778}
+              width={416}
+              height={900}
               className={`${styles.phoneShot} ${styles.phoneBehind}`}
+              sizes="(max-width: 900px) 52vw, 280px"
+              loading="lazy"
             />
           </div>
         </section>
@@ -135,11 +139,13 @@ export function HomePage({ content }: { content: HomeContent }) {
 
         <section className={styles.showcase}>
           <Image
-            src="/product/markdown-export.png"
+            src="/product/markdown-export.jpg"
             alt={content.imageAlts.markdown}
-            width={1284}
-            height={2778}
+            width={416}
+            height={900}
             className={styles.showcaseImage}
+            sizes="(max-width: 900px) 70vw, 360px"
+            loading="lazy"
           />
           <div className={styles.showcaseCopy}>
             <p className={styles.kicker}>{content.notesKicker}</p>
@@ -155,11 +161,13 @@ export function HomePage({ content }: { content: HomeContent }) {
             <p>{content.searchBody}</p>
           </div>
           <Image
-            src="/product/map.png"
+            src="/product/map.jpg"
             alt={content.imageAlts.map}
-            width={1284}
-            height={2778}
+            width={416}
+            height={900}
             className={styles.showcaseImage}
+            sizes="(max-width: 900px) 70vw, 360px"
+            loading="lazy"
           />
         </section>
 
