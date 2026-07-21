@@ -50,10 +50,10 @@ export async function generateMetadata({
       siteName: "Markdown Voice Memos",
       images: [
         {
-          url: "/product/library.png",
-          width: 1284,
-          height: 2778,
-          alt: content.imageAlts.library,
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: "Markdown Voice Memos — voice memos that become clean Markdown notes",
         },
       ],
       locale: content.ogLocale,
@@ -66,7 +66,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: content.title,
       description: content.ogDescription,
-      images: ["/product/library.png"],
+      images: ["/og.png"],
     },
   };
 }

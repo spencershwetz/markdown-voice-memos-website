@@ -29,11 +29,6 @@ export function HomePage({ content }: { content: HomeContent }) {
       price: "0",
       priceCurrency: "USD",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4",
-      ratingCount: "5",
-    },
     featureList: [
       "Apple native iOS 26 SpeechTranscriber transcription",
       "On-device Parakeet v3 transcription",
@@ -44,6 +39,12 @@ export function HomePage({ content }: { content: HomeContent }) {
     description: content.description,
     url: pageUrl,
     downloadUrl: appStoreUrl,
+    image: `${siteUrl}/product/app-icon.png`,
+    screenshot: [
+      `${siteUrl}/product/library.png`,
+      `${siteUrl}/product/transcript.png`,
+      `${siteUrl}/product/markdown-export.png`,
+    ],
   };
 
   const faqJsonLd = {
