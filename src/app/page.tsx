@@ -6,7 +6,6 @@ import {
   appStoreUrl,
   getContent,
   siteUrl,
-  supportedLanguageNames,
   type HomeContent,
 } from "./siteContent";
 
@@ -46,9 +45,11 @@ export function HomePage({ content }: { content: HomeContent }) {
       `${siteUrl}/product/transcript.jpg`,
       `${siteUrl}/product/markdown-export.jpg`,
     ],
-    availableLanguage: supportedLanguageNames,
     publisher: {
       "@id": `${siteUrl}/#organization`,
+    },
+    mainEntityOfPage: {
+      "@id": `${pageUrl}#webpage`,
     },
   };
 
@@ -60,7 +61,6 @@ export function HomePage({ content }: { content: HomeContent }) {
         "@id": `${siteUrl}/#website`,
         name: "Markdown Voice Memos",
         url: siteUrl,
-        inLanguage: content.lang,
       },
       {
         "@type": "Organization",
@@ -68,6 +68,21 @@ export function HomePage({ content }: { content: HomeContent }) {
         name: "Markdown Voice Memos",
         url: siteUrl,
         logo: `${siteUrl}/product/app-icon.png`,
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: content.title,
+        description: content.description,
+        inLanguage: content.locale,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
+          "@type": "SoftwareApplication",
+          name: "Markdown Voice Memos",
+        },
       },
     ],
   };
